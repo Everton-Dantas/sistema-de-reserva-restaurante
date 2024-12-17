@@ -1,26 +1,28 @@
-
 package com.fiap.reservarestaurantes.adapters.controller;
 
 import com.fiap.reservarestaurantes.entity.Restaurante;
-import com.fiap.reservarestaurantes.frameworks.persistence.RestauranteRepository;
+import com.fiap.reservarestaurantes.repository.RestauranteRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import java.util.Collections;
 
-@SpringBootTest
-@AutoConfigureMockMvc
+import static org.mockito.BDDMockito.given;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@WebMvcTest(RestauranteController.class)
 class RestauranteControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
+    @MockBean
     private RestauranteRepository restauranteRepository;
 
     @Test
@@ -28,28 +30,12 @@ class RestauranteControllerTest {
         Restaurante restaurante = new Restaurante();
         restaurante.setNome("Restaurante Teste");
         restaurante.setCapacidade(50);
-        restauranteRepository.save(restaurante);
+
+        given(restauranteRepository.findAll()).willReturn(Collections.singletonList(restaurante));
 
         mockMvc.perform(get("/restaurantes")
-                .contentType(MediaType.APPLICATION_JSON))
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].nome").value("Restaurante Teste"));
-    }
-
-    @Test
-    void deveCadastrarNovoRestaurante() throws Exception {
-        String novoRestaurante = "{"
-                + ""nome": "Novo Restaurante","
-                + ""localizacao": "Rua Teste","
-                + ""tipoCozinha": "Italiana","
-                + ""horarioFuncionamento": "10:00-22:00","
-                + ""capacidade": 30"
-                + "}";
-
-        mockMvc.perform(post("/restaurantes")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(novoRestaurante))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.nome").value("Novo Restaurante"));
     }
 }

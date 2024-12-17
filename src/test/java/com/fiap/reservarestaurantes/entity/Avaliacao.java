@@ -1,52 +1,27 @@
-
 package com.fiap.reservarestaurantes.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
-public class Avaliacao extends com.fiap.reservarestaurantes.entity.Avaliacao {
+@Table(name = "avaliacoes") // Nome da tabela no banco de dados
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Avaliacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int nota; // Nota de 1 a 5
+
     private String comentario;
-    private String nomeCliente;
+    private Integer nota;
 
     @ManyToOne
-    private Restaurante restaurante;
-
-    // Getters e Setters
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public int getNota() {
-        return nota;
-    }
-
-    public void setNota(int nota) {
-        this.nota = nota;
-    }
-
-    public String getComentario() {
-        return comentario;
-    }
-
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
-    }
+    @JoinColumn(name = "restaurante_id")
+    private Restaurante restaurante; // Associação com Restaurante
+}
 
 
 
-
-    public R

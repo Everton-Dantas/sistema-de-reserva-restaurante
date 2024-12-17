@@ -66,12 +66,6 @@
             <artifactId>logback-classic</artifactId>
             <version>1.4.11</version>
         </dependency>
-        <dependency>
-            <groupId>com.fiap</groupId>
-            <artifactId>reservarestaurantes</artifactId>
-            <version>1.0.0</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <build>

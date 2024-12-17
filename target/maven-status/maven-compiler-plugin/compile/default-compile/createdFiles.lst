@@ -1,0 +1,15 @@
+com\fiap\reservarestaurantes\controller\AvaliacaoController.class
+com\fiap\reservarestaurantes\repository\AvaliacaoRepository.class
+com\fiap\reservarestaurantes\repository\RestauranteRepository.class
+com\fiap\reservarestaurantes\entity\Avaliacao.class
+com\fiap\reservarestaurantes\entity\Reserva.class
+com\fiap\reservarestaurantes\adapters\controller\RestauranteController.class
+com\fiap\reservarestaurantes\entity\Restaurante.class
+com\fiap\reservarestaurantes\config\SwaggerConfig.class
+com\fiap\reservarestaurantes\entity\StatusReserva.class
+com\fiap\reservarestaurantes\usecases\AvaliacaoService.class
+com\fiap\reservarestaurantes\usecases\RestauranteService.class
+com\fiap\reservarestaurantes\repository\ReservaRepository.class
+com\fiap\reservarestaurantes\ReservarestaurantesApplication.class
+com\fiap\reservarestaurantes\controller\ReservaController.class
+com\fiap\reservarestaurantes\usecases\ReservaService.class
