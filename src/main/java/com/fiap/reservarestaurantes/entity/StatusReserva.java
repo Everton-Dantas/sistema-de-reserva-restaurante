@@ -1,8 +1,8 @@
 
-package com.fiap.reservarestaurantes.entities;
+package com.fiap.reservarestaurantes.entity;
 
 public enum StatusReserva {
-    RESERVADA,
+    PENDENTE,
     CONFIRMADA,
     CANCELADA
 }

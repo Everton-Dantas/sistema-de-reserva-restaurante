@@ -1,7 +1,7 @@
 
 package com.fiap.reservarestaurantes.usecases;
 
-import com.fiap.reservarestaurantes.entities.Restaurante;
+import com.fiap.reservarestaurantes.entity.Restaurante;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

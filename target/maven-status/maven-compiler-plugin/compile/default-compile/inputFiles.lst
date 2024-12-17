@@ -1,11 +1,11 @@
+C:\Users\DELL\Desktop\FIAP\src\main\java\com\fiap\reservarestaurantes\adapters\controller\RestauranteController.java
 C:\Users\DELL\Desktop\FIAP\src\main\java\com\fiap\reservarestaurantes\config\SwaggerConfig.java
 C:\Users\DELL\Desktop\FIAP\src\main\java\com\fiap\reservarestaurantes\controller\AvaliacaoController.java
 C:\Users\DELL\Desktop\FIAP\src\main\java\com\fiap\reservarestaurantes\controller\ReservaController.java
-C:\Users\DELL\Desktop\FIAP\src\main\java\com\fiap\reservarestaurantes\controller\RestauranteController.java
-C:\Users\DELL\Desktop\FIAP\src\main\java\com\fiap\reservarestaurantes\entities\Avaliacao.java
-C:\Users\DELL\Desktop\FIAP\src\main\java\com\fiap\reservarestaurantes\entities\Reserva.java
-C:\Users\DELL\Desktop\FIAP\src\main\java\com\fiap\reservarestaurantes\entities\Restaurante.java
-C:\Users\DELL\Desktop\FIAP\src\main\java\com\fiap\reservarestaurantes\entities\StatusReserva.java
+C:\Users\DELL\Desktop\FIAP\src\main\java\com\fiap\reservarestaurantes\entity\Avaliacao.java
+C:\Users\DELL\Desktop\FIAP\src\main\java\com\fiap\reservarestaurantes\entity\Reserva.java
+C:\Users\DELL\Desktop\FIAP\src\main\java\com\fiap\reservarestaurantes\entity\Restaurante.java
+C:\Users\DELL\Desktop\FIAP\src\main\java\com\fiap\reservarestaurantes\entity\StatusReserva.java
 C:\Users\DELL\Desktop\FIAP\src\main\java\com\fiap\reservarestaurantes\repository\AvaliacaoRepository.java
 C:\Users\DELL\Desktop\FIAP\src\main\java\com\fiap\reservarestaurantes\repository\ReservaRepository.java
 C:\Users\DELL\Desktop\FIAP\src\main\java\com\fiap\reservarestaurantes\repository\RestauranteRepository.java
