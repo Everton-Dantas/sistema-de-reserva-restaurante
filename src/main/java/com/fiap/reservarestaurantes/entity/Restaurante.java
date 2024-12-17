@@ -21,4 +21,6 @@ public class Restaurante {
     private String telefone;
     private int capacidade;
     private String categoria;
+    private String localizacao;
+    private String tipoCozinha;
 }

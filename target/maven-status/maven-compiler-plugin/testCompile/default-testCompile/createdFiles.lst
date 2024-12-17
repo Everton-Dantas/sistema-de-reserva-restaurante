@@ -1,0 +1,7 @@
+com\fiap\reservarestaurantes\adapters\controller\RestauranteRepository.class
+com\fiap\reservarestaurantes\entity\Avaliacao.class
+com\fiap\reservarestaurantes\adapters\controller\RestauranteControllerTest.class
+com\fiap\reservarestaurantes\entity\Restaurante.class
+com\fiap\reservarestaurantes\bdd\RestauranteRepository.class
+com\fiap\reservarestaurantes\adapters\repository\RestauranteRepositoryTest.class
+com\fiap\reservarestaurantes\usecases\RestauranteUseCaseTest.class
