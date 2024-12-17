@@ -2,7 +2,7 @@
 package com.fiap.reservarestaurantes.bdd;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fiap.reservarestaurantes.entities.Restaurante;
+import com.fiap.reservarestaurantes.entity.Restaurante;
 import com.fiap.reservarestaurantes.frameworks.persistence.RestauranteRepository;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -16,6 +16,7 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 @SpringBootTest
+@Data
 public class RestauranteSteps {
 
     @Autowired

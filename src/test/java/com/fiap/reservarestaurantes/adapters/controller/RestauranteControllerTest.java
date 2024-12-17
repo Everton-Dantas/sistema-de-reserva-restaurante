@@ -1,7 +1,7 @@
 
 package com.fiap.reservarestaurantes.adapters.controller;
 
-import com.fiap.reservarestaurantes.entities.Restaurante;
+import com.fiap.reservarestaurantes.entity.Restaurante;
 import com.fiap.reservarestaurantes.frameworks.persistence.RestauranteRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

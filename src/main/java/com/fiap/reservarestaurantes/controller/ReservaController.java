@@ -1,17 +1,19 @@
 
 package com.fiap.reservarestaurantes.controller;
 
-import com.fiap.reservarestaurantes.entities.Reserva;
-import com.fiap.reservarestaurantes.entities.Restaurante;
-import com.fiap.reservarestaurantes.entities.StatusReserva;
+import com.fiap.reservarestaurantes.entity.Reserva;
+import com.fiap.reservarestaurantes.entity.StatusReserva;
+import com.fiap.reservarestaurantes.entity.Restaurante;
 import com.fiap.reservarestaurantes.usecases.ReservaService;
 import com.fiap.reservarestaurantes.usecases.RestauranteService;
+import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/reservas")
@@ -25,7 +27,7 @@ public class ReservaController {
 
     @PostMapping
     public ResponseEntity<?> criarReserva(@RequestBody Reserva reserva) {
-        Optional<Restaurante> restauranteOpt = restauranteService.buscarPorId(reserva.getRestaurante().getId());
+        val restauranteOpt = restauranteService.buscarPorId(reserva.getRestaurante().getId());
         if (!restauranteOpt.isPresent()) {  // Substituindo isEmpty() por !isPresent()
             return ResponseEntity.badRequest().body("Restaurante não encontrado");
         }

@@ -1,5 +1,5 @@
 
-package com.fiap.reservarestaurantes.entities;
+package com.fiap.reservarestaurantes.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Avaliacao {
+public class Avaliacao extends com.fiap.reservarestaurantes.entity.Avaliacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,19 +46,7 @@ public class Avaliacao {
         this.comentario = comentario;
     }
 
-    public String getNomeCliente() {
-        return nomeCliente;
-    }
 
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
-    }
 
-    public Restaurante getRestaurante() {
-        return restaurante;
-    }
 
-    public void setRestaurante(Restaurante restaurante) {
-        this.restaurante = restaurante;
-    }
-}
+    public R
