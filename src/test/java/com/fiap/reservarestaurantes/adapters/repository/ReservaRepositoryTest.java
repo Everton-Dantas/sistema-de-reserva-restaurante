@@ -1,0 +1,1 @@
+// Arquivo de teste gerado automaticamente: ReservaRepositoryTest.java
