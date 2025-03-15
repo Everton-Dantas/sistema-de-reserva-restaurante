@@ -1,21 +1,25 @@
-
 package com.fiap.reservarestaurantes.bdd;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fiap.reservarestaurantes.entities.Restaurante;
-import com.fiap.reservarestaurantes.frameworks.persistence.RestauranteRepository;
+import com.fiap.reservarestaurantes.repository.RestauranteRepository;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.util.Map;
+
 @SpringBootTest
+@AutoConfigureMockMvc
 public class RestauranteSteps {
 
     @Autowired
@@ -28,8 +32,8 @@ public class RestauranteSteps {
     private MvcResult result;
 
     @Given("existe um restaurante com os seguintes dados:")
-    public void existeUmRestauranteComOsSeguintesDados(io.cucumber.datatable.DataTable dataTable) {
-        var dados = dataTable.asMaps().get(0);
+    public void existeUmRestauranteComOsSeguintesDados(DataTable dataTable) {
+        Map<String, String> dados = dataTable.asMaps().get(0);
         restaurante = new Restaurante();
         restaurante.setNome(dados.get("nome"));
         restaurante.setLocalizacao(dados.get("localizacao"));
@@ -44,8 +48,8 @@ public class RestauranteSteps {
         String json = mapper.writeValueAsString(restaurante);
 
         result = mockMvc.perform(MockMvcRequestBuilders.post("/restaurantes")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(json))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json))
                 .andReturn();
     }
 
