@@ -31,4 +31,7 @@ public class Restaurante {
         this.tipoCozinha = tipoCozinha;
         this.capacidade = capacidade;
     }
+
+    public void setHorarioFuncionamento(String horarioFuncionamento) {
+    }
 }

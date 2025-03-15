@@ -1,0 +1,4 @@
+com\fiap\reservarestaurantes\adapters\controller\RestauranteControllerTest.class
+com\fiap\reservarestaurantes\bdd\RestauranteSteps.class
+com\fiap\reservarestaurantes\adapters\repository\RestauranteRepositoryTest.class
+com\fiap\reservarestaurantes\usecases\RestauranteUseCaseTest.class
