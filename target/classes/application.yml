@@ -1,18 +1,65 @@
-
 spring:
+  profiles:
+    active: prod # Define o perfil padrão como "prod"
+
+---
+# ✅ Configuração para rodar no Docker com MySQL (Perfil `prod`)
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  spring:
+    datasource:
+      url: jdbc:mysql://localhost:3306/restaurante_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: restaurante_user
+      password: restaurante_pass
+
+
+    jpa:
+    hibernate:
+      ddl-auto: validate # Em produção, prefira validate ou none para evitar modificações automáticas
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+  sql:
+    init:
+      mode: never # Evita rodar scripts no banco de produção
+
+  test:
+    database:
+      replace: none # Evita que o Spring substitua automaticamente o banco
+
+---
+
+# ✅ Configuração para rodar localmente com H2 (Perfil `dev`)
+spring:
+  config:
+    activate:
+      on-profile: dev
+
   datasource:
-    url: jdbc:h2:mem:reservarestaurantes;DB_CLOSE_DELAY=-1
+    url: jdbc:h2:mem:restaurante_db
     driver-class-name: org.h2.Driver
     username: sa
-    password: password
+    password:
+
   h2:
     console:
       enabled: true
       path: /h2-console
+
   jpa:
     hibernate:
       ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
     show-sql: true
     properties:
       hibernate.format_sql: true
-    database-platform: org.hibernate.dialect.H2Dialect
+
+  sql:
+    init:
+      mode: always # Apenas no ambiente `dev` roda scripts SQL

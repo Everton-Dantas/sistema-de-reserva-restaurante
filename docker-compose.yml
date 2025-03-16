@@ -16,13 +16,19 @@ services:
       - mysql_data:/var/lib/mysql
     networks:
       - app_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 10s
+      retries: 5
+      timeout: 5s
 
   app:
     build: .
     container_name: restaurante_app
     restart: always
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy  # Aguarda MySQL estar pronto antes de iniciar a aplicação
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/restaurante_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: restaurante_user
@@ -33,6 +39,7 @@ services:
       - "8080:8080"
     networks:
       - app_network
+    entrypoint: ["sh", "-c", "echo 'Aguardando MySQL...' && sleep 20 && java -jar app.jar"]
 
 volumes:
   mysql_data:
